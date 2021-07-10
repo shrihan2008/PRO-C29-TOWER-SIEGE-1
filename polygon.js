@@ -1,6 +1,6 @@
 class Polygon
 {
-    constructor(x,y,radius){
+    constructor(radius,x,y){
         var options= {
             isStatic:false,
             restitution:0.7,
@@ -12,16 +12,16 @@ class Polygon
         this.radius = radius;
         this.x= x;
         this.y =y;
-        
+      this.image=loadImage("polygon.png")
           
         World.add(world, this.body);
     }
     display(){
         push();
         translate(this.body.position.x, this.body.position.y);
-        ellipseMode(CENTER);
+        imageMode(CENTER);
       
-        circle(0,0, this.radius);
+        image(this.image,this.radius,0,0 );
         pop();
     }
 }
