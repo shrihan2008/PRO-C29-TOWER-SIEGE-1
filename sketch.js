@@ -3,10 +3,11 @@ const World = Matter.World;
 const Bodies = Matter.Bodies;
 const Body = Matter.Body;
 const Constraint = Matter.Constraint;
-var img
-function prload(){
-  img=loaddImage("polygon.png")
-}
+var  polygon_img
+function preload(){
+   polygon_img=loadImage("polygon.png")
+   } 
+
 function setup (){
   
     createCanvas(800, 400);
@@ -15,6 +16,9 @@ function setup (){
 
 
     Engine.run(engine);
+
+
+
 
 
   
@@ -30,13 +34,17 @@ function setup (){
     tower7 = new Tower(550, 150, 30, 100);
     tower8 = new Tower(610, 150, 30, 100);
     tower9 = new Tower(580, 50, 30, 100);
-    polygon=new Polygon(50,200,20)
-    
-    
-    sling = new Sling(polygon.body,{x:50,y:50});
+
+    ball=new Polygon(50,200,20)
+    ball.addImage=(polygon_img)
+    ball.resize=(50,50)
+ 
+  
+
+   
 
   }
-
+ 
 
 function draw() {
   background(76);  
@@ -50,16 +58,15 @@ function draw() {
  tower7.display()
  tower8.display()
  tower9.display()
-  ground.display()
-  polygon.display()
- sling.display()
+ ground.display()
+ ball.display()
   
 }
-function mouseDragged(){
-  Matter.Body.setPosition(polygon.body, {x: mouseX , y: mouseY});
-}
+//function mouseDragged(){
+//  Matter.Body.setPosition(sling.body, {x: mouseX , y: mouseY});
+//}
 
 
-function mouseReleased(){
-  sling.fly();
-}
+//function mouseReleased(){
+//  sling.fly();
+//}
