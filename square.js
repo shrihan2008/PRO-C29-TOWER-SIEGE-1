@@ -2,7 +2,7 @@ class Tower
 {
 constructor(x,y,width,height){
    var options= {
-  isStatic:true,    
+  isStatic:false,    
   friction:0.5,
    density:1.2
     }
@@ -11,6 +11,7 @@ constructor(x,y,width,height){
    this.height = height;
     
     World.add(world, this.body);
+    this.visiblity=255
 }
 display(){
         
@@ -18,6 +19,6 @@ display(){
   rectMode(CENTER);
    fill("yellow")
     rect(pos.x, pos.y, this.width, this.height);
-    
+ 
 }
 }
