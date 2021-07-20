@@ -17,7 +17,7 @@ display(){
         
   var pos =this.body.position;
   rectMode(CENTER);
-   fill("yellow")
+  fill(random(150,5))
     rect(pos.x, pos.y, this.width, this.height);
  
 }
