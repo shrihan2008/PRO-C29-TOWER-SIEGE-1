@@ -4,6 +4,10 @@ const Bodies = Matter.Bodies;
 const Body = Matter.Body;
 const Constraint = Matter.Constraint;
 
+var bg
+function preload() {
+  //getTime();
+}
 
 function setup (){
   
@@ -28,6 +32,9 @@ function setup (){
     tower7 = new Tower(550, 150, 30, 100);
     tower8 = new Tower(610, 150, 30, 100);
     tower9 = new Tower(580, 50, 30, 100);
+    tower10 = new Tower(600, 50, 30, 100);
+    tower11 = new Tower(620, 50, 30, 100);
+
     polygon=new Polygon(50,50,20)
     
     
@@ -37,7 +44,10 @@ function setup (){
 
 
 function draw() {
-  background(76);  
+  //if(bg)
+  background(7);
+
+    
   tower.display()
  tower1.display()
  tower2.display()
@@ -48,6 +58,9 @@ function draw() {
  tower7.display()
  tower8.display()
  tower9.display()
+ tower10.display()
+ tower11.display()
+
   ground.display()
   polygon.display()
  sling.display()
@@ -67,3 +80,19 @@ function keyPressed(){
      slingshot.attach(polygon.body)
   }
 }
+
+/*async function getTime(){
+  var response=await fetch("http://worldtimeapi.org/api/timezone/Asia/Kolkata")
+  var responseJson=await response.json()
+  var dateTime=responseJson.datetime
+  var hour=dateTime.slice(11,13)
+  if(hour>=07&&hour<=17){
+    bg= background(7)
+  }
+  else{
+   bg= background(3)
+  }
+
+  console.log(dateTime)
+
+}*/
