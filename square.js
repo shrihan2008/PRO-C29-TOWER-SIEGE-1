@@ -2,7 +2,7 @@ class Tower
 {
 constructor(x,y,width,height){
    var options= {
-  isStatic:false,    
+  isStatic:true,    
   friction:0.5,
    density:1.2
     }
