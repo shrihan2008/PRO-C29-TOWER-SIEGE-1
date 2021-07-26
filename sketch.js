@@ -6,7 +6,7 @@ const Constraint = Matter.Constraint;
 
 var bg
 function preload() {
- // getTime();
+getTime();
 }
 
 function setup (){
@@ -45,7 +45,7 @@ function setup (){
 
 
 function draw() {
-  //if(bg)
+  if(bg)
   background("cyan");
 
     
