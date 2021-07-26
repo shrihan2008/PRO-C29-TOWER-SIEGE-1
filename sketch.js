@@ -3,12 +3,12 @@ const World = Matter.World;
 const Bodies = Matter.Bodies;
 const Body = Matter.Body;
 const Constraint = Matter.Constraint;
-
-var bg
-function preload() {
-getTime();
+var gameState = "onSling";
+var bg = "sprites/bg1.png";
+var score = 0;
+function preload(){
+  getTime();
 }
-
 function setup (){
   
     createCanvas(800, 400);
@@ -23,7 +23,6 @@ function setup (){
 
     ground = new Ground(600, 400, 10000, 20);
     tower = new Tower(560, 350, 30, 100);
-    tower11 = new Tower(580, 50, 30, 100);
     tower1 = new Tower(600, 350, 30, 100);
     tower2 = new Tower(520, 350, 30, 100);
     tower3 = new Tower(640, 350, 30, 100);
@@ -33,9 +32,6 @@ function setup (){
     tower7 = new Tower(550, 150, 30, 100);
     tower8 = new Tower(610, 150, 30, 100);
     tower9 = new Tower(580, 50, 30, 100);
-    //tower10 = new Tower(650, 50, 30, 100);
-    //tower13 = new Tower(60, 50, 30, 100);
-
     polygon=new Polygon(50,50,20)
     
     
@@ -45,10 +41,9 @@ function setup (){
 
 
 function draw() {
-  if(bg)
-  background("cyan");
 
-    
+  
+  background(76);  
   tower.display()
  tower1.display()
  tower2.display()
@@ -59,9 +54,6 @@ function draw() {
  tower7.display()
  tower8.display()
  tower9.display()
- //tower10.display()
- tower11.display()
-// tower13.display()
   ground.display()
   polygon.display()
  sling.display()
@@ -74,6 +66,7 @@ function mouseDragged(){
 
 function mouseReleased(){
   sling.fly();
+  gameState = "launched";
 }
 
 function keyPressed(){
@@ -81,17 +74,18 @@ function keyPressed(){
      slingshot.attach(polygon.body)
   }
 }
+
 async function getTime(){
- var response = await fetch("http://worldtimeapi.org/api/timezone/Asia/Kolkata");
+  var response=await fetch("http://worldtimeapi.org/api/timezone/Asia/Kolkata")
+  var responseJson=await response.json()
   var dateTime=responseJson.datetime
   var hour=dateTime.slice(11,13)
   if(hour>=07&&hour<=17){
-    bg= background("blue")
+   background("Yellow")
   }
   else{
-   bg= background("green")
+  background("green")
   }
-  bg=background("cyan")
-  console.log(dateTime)
+
 
 }
