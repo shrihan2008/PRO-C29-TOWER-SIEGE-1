@@ -7,7 +7,7 @@ var gameState = "onSling";
 var bg = "sprites/bg1.png";
 var score = 0;
 function preload(){
-  //getTime();
+getTime();
 }
 function setup (){
   
@@ -23,24 +23,27 @@ function setup (){
 
     ground = new Ground(1000, 600, 10000, 20);
     ground2 = new Ground(800, 400, 250, 20);
+ 
     tower = new Tower(560, 350, 30, 100);
+    
     tower1 = new Tower(600, 350, 30, 100);
+ 
     tower2 = new Tower(520, 350, 30, 100);
     tower3 = new Tower(640, 350, 30, 100);
-    tower4 = new Tower(530, 250, 30, 100);
-    tower5 = new Tower(580, 250, 30, 100);
-    tower6 = new Tower(630, 250, 30, 100);
-    tower7 = new Tower(550, 150, 30, 100);
-    tower8 = new Tower(610, 150, 30, 100);
-    tower9 = new Tower(580, 50, 30, 100);
+    tower4 = new Tower1(530, 250, 30, 100);
+    tower5 = new Tower1(580, 250, 30, 100);
+    tower6 = new Tower1(630, 250, 30, 100);
+    tower7 = new Tower2(550, 150, 30, 100);
+    tower8 = new Tower2(610, 150, 30, 100);
+    tower9 = new Tower3(580, 50, 30, 100);
     
-    tower10 = new Tower(730, 20, 30, 100);
-    tower11 = new Tower(790, 20, 30, 100);
-    tower12 = new Tower(850, 20, 30, 100);
-    tower13 = new Tower(910, 20, 30, 100);
+    tower10 = new Tower3(730, 20, 30, 100);
+    tower11 = new Tower3(790, 20, 30, 100);
+    tower12 = new Tower3(850, 20, 30, 100);
+    tower13 = new Tower3(910, 20, 30, 100);
 
-    tower14 = new Tower(780, 10, 30, 100);
-    tower15 = new Tower(840, 10, 30, 100);
+    tower14 = new Tower1(780, 10, 30, 100);
+    tower15 = new Tower1(840, 10, 30, 100);
     
     polygon=new Polygon(50,40,50)
     
@@ -94,7 +97,7 @@ function keyPressed(){
   }
 }
 
-/*async function getTime(){
+async function getTime(){
   var response=await fetch("http://worldtimeapi.org/api/timezone/Asia/Kolkata")
   var responseJson=await response.json()
   var dateTime=responseJson.datetime
@@ -107,4 +110,4 @@ function keyPressed(){
   }
 
 
-}*/
+}
